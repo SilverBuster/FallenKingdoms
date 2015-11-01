@@ -1,0 +1,89 @@
+name: UnlimitedFallenKingdoms
+main: fr.morin.fallenkingdoms.fallenkingdoms
+version: 0.4
+description: Le nouveau FallenKingdoms
+author: SilverBuster
+
+
+commands:
+  fkplugin:
+    description: Activation / désactivation du plugin
+    permission: fallenkingdoms.master
+    usage: |
+      Usage: /fkplugin <start|stop>
+      /fkplugin start       - Active le plugin
+      /fkplugin stop        - Désactive le plugin
+    
+  fkworlds:
+    description: Séléctionne les mondes à inclure dans le plugin
+    permission: fallenkingdoms.master
+    usage: |
+      Usage: /fkworlds <list|add|remove|addAll|removeAll>
+      /fkworlds list      - Affiche la liste des mondes gérés par le plugin
+      /fkworlds add       - Ajoute le monde courant à la liste des mondes gérés par le plugin
+      /fkworlds remove    - Retire le monde courant à la liste des mondes gérés par le plugin
+      /fkworlds addAll    - Ajoute tous les mondes de la liste
+      /fkworlds removeAll - Retire tous les mondes de la liste
+      
+  fkteams:
+    description: Permet de gérer les équipes de la partie
+    permission: fallenkingdoms.master
+    usage: |
+      Usage: fkteams <add|create|list|remove|reset|base|baseList> [color|nombre] [taille]
+      /fkteams add rouge      - Créé l'équipe rouge
+      /fkteams create 5       - Créé 5 équipes
+      /fkteams list           - Affiche les équipes créées
+      /fkteams remove bleue   - Supprime l'équipe bleue
+      /fkteams reset          - Supprime toutes les équipes
+      /fkteams base rouge 20  - Génère une base carrée pour l'équipe rouge de taille 20
+      /fkteams baseList rouge - Affiche la liste des bases de l'équipe rouge
+
+  fkplayer:
+    description: Permet de gérer l'inscription des joueurs au jeu et dans les équipes
+    permission: fallenkingdoms.player
+    usage: |
+      Usage: fkplayer <list|make|join|leave> [color]
+      /fkplayer list        - Affiche les joueurs et leurs équipes respectives
+      /fkplayer make        - Répartit les participants dans les équipes de manière équilibrée
+      /fkplayer join jaune  - S'enregistre dans l'équipe jaune
+      /fkplayer leave       - Se désinscrit de son équipe 
+  
+  fkgame:
+    description: Permet de gérer le déroulement de la partie
+    permission: fallenkingdoms.master
+    usage: |
+      Usage: fkgame <start|pause|reset|restart|cut> [true|false|0|1]
+      /fkgame start   - Lance la partie
+      /fkgame pause   - Met la partie en pause
+      /fkgame restart - Reviens au lever du soleil du jour courant
+      /fkgame cut 1   - La partie se mettra automatiquement en pause à la fin de la journée
+
+  fkrules:
+    description: Permet de modifier les règles du jeu
+    permission: fallenkingdoms.master
+    usage: |
+      Usage: fkrules <list|allowBlock|denyBlock|regle> [valeur]
+      /fkrules list       - Affiche la liste des règles du jeu
+      /fkrules allowBlock - Ajoute le bloc tenu en main à la liste des blocs autorisés en jeu
+      /fkrules denyBlock  - Retire le bloc tenu en main de la liste des blocs autorisés en jeu
+      /fkrules tntCap 10  - Autorise l'attaque du camp adversaire à partir du jour 10
+
+  fkstatus:
+    description: Permet d'avoir des informations sur le déroulement de la partie ou sur les règles du jeu
+    permission: fallenkingdoms.player
+    usage: |
+      Usage: fkstatus <game|rules|players|teams|block>
+        
+permissions:
+  fallenkingdoms.*:
+    description: Donne accès à toutes les commandes du plugin
+    children:
+      fk.master: true
+      fk.player: true
+  fallenkingdoms.master:
+    description: Permet de gérer le plugin, la partie et les équipes
+    default: op
+  fallenkingdoms.player:
+    description: Permet d'obtenir le status de la partie en cours et de gérer sa participation
+    default: true
+	
