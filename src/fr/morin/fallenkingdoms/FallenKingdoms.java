@@ -1,4 +1,4 @@
-package fr.morin.FallenKingdoms;
+package fr.morin.fallenkingdoms;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
